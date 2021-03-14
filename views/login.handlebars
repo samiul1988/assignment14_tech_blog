@@ -1,0 +1,27 @@
+<section class="post_card login_form">
+    <div class="post_title_container">
+        <div class="post_title">
+            {{action_label}}
+        </div>
+    </div>
+    <div class="post_body">
+        <form class="post_form" id="auth-form">
+            <div class="form_row">
+                <label class="display_block" for="formInputUserName">Username</label>
+                <input class="post_form_input display_block" type="text" id="formInputUserName"/>
+            </div>
+            <div class="form_row">
+                <label class="display_block" for="formInputPassword">Password</label>
+                <input class="post_form_input display_block" type="password" id="formInputPassword"/>
+            </div>
+            <div>
+                <button name="authSubmitBtn" type="submit" class="btn form_btn" data-action="{{action_label}}">{{action_label}}!</button>
+            </div>
+        </form>
+        <div class="form_link">
+            <a href={{toggle_link action_label}}>{{toggle_label action_label}} instead</a>
+        </div>
+    </div>
+</section>
+
+<script src="/javascript/login.js"></script>

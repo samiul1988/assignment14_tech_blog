@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Tech Blog</title>
+    <link rel="stylesheet" href="/stylesheets/style.css">
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
+</head>
+
+<body>
+    <header>
+        <nav class="navbar">
+            <ul>
+                <li>
+                    <a href="/">Home</a>
+                </li>
+                <li>
+                    <a href="/dashboard">Dashboard</a>
+                </li>
+                {{#if isAuthenticated}}
+                <li>
+                    <button id="logoutBtn" class="btn-link">Logout</button>
+                </li>
+                {{else}}
+                <li>
+                    <a href="/login">Login</a>
+                </li>
+                {{/if}}
+            </ul>
+        </nav>
+        <div class="header_title">
+            {{#if dashboard}}
+            <h1>Your Dashboard</h1>
+            {{else}}
+            <h1>The Tech Blog</h1>
+            {{/if}}
+        </div>
+    </header>
+    <main>
+        {{{ body }}}
+    </main>
+
+    {{#if isAuthenticated}}
+    <script src="/javascript/logout.js"></script>
+    {{/if}}
+</body>
+
+</html>

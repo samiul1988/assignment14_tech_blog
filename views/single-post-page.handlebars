@@ -1,0 +1,13 @@
+{{> post-card post}}
+
+{{#if isAuthenticated}}
+{{> comment-form }}
+{{/if}}
+
+{{#if (has_array_elements post.comments)}}
+{{> comments post.comments}}
+{{/if}}
+
+{{#if isAuthenticated}}
+<script src="/javascript/comment.js"></script>
+{{/if}}

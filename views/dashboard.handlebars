@@ -1,0 +1,20 @@
+<div class="new_post_btn_container">
+    <div>
+        <input class="btn new_post_btn" type="button" id="newPostBtn" value="+ New Post"/>
+    </div>
+</div>
+{{> post-form}}
+
+{{#if posts.length}}
+<section class="own-posts-container">
+  <ul>
+    {{#each posts as |post|}}
+    <li>
+      {{> own-post-card post}}
+    </li>
+    {{/each}}
+  </ul>
+</section>
+{{/if}}
+
+<script src="/javascript/create-post.js"></script>
