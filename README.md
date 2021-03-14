@@ -53,10 +53,14 @@ THEN I am automatically signed out of the site
 
 * The project was developed from scratch.
 * Basic considerations were as follows:
-    * TBA
+    * Following packages were used: ```express-handlebars```, ```mysql2```, ```sequelize```, ```dotenv```, ```bcrypt```, ```express-session``` and  ```connect-session-sequelize```
+    * Application's folder structure follows MVC paradigm
+    * Application was deployed to Heroku
+    * For each model, I attempted to create all CRUD apis, some of which return json as response, and some were used in homepage and dashboard page routes to render appropriate views
+    * For session expiry, I considered 30 mins as the set time
 
 ### Demo Run
 ![Demo Run](./assets/images/Demo_assignment10.gif)
 
 ### Link of Deployed Application
-[Click here to see the video](https://drive.google.com/file/d/1IM8kVVlVYrM2cALU0LDn-ewmJCiiwAD9/view)
+[Heroku App Link](https://drive.google.com/file/d/1IM8kVVlVYrM2cALU0LDn-ewmJCiiwAD9/view)

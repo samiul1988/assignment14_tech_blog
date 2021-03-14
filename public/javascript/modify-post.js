@@ -1,3 +1,4 @@
+// handles post edit request
 const handleEditPostSubmitBtn = async (e) => {
     e.preventDefault(); // prevents default submit button behaviour
 
@@ -27,7 +28,7 @@ const handleEditPostSubmitBtn = async (e) => {
     }
 };
 
-
+// handles post delete request
 const handleDeletePostBtn = async (e) => {
     e.preventDefault();
 

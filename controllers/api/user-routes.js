@@ -1,5 +1,6 @@
+// import required modules
 const router = require('express').Router();
-const { User, Post, Comment, Vote } = require('../../models');
+const { User } = require('../../models');
 
 // get all users
 router.get('/', (req, res) => {
@@ -13,46 +14,7 @@ router.get('/', (req, res) => {
         });
 });
 
-// router.get('/:id', (req, res) => {
-//   User.findOne({
-//     attributes: { exclude: ['password'] },
-//     where: {
-//       id: req.params.id
-//     },
-//     include: [
-//       {
-//         model: Post,
-//         attributes: ['id', 'title', 'post_url', 'created_at']
-//       },
-//       {
-//         model: Comment,
-//         attributes: ['id', 'comment_text', 'created_at'],
-//         include: {
-//           model: Post,
-//           attributes: ['title']
-//         }
-//       },
-//       {
-//         model: Post,
-//         attributes: ['title'],
-//         through: Vote,
-//         as: 'voted_posts'
-//       }
-//     ]
-//   })
-//     .then(dbUserData => {
-//       if (!dbUserData) {
-//         res.status(404).json({ message: 'No user found with this id' });
-//         return;
-//       }
-//       res.json(dbUserData);
-//     })
-//     .catch(err => {
-//       console.log(err);
-//       res.status(500).json(err);
-//     });
-// });
-
+// create a new user
 router.post('/', (req, res) => {
     // expects {username: 'Samiulhc', password: 'password1234'}
     User.create({
@@ -74,6 +36,7 @@ router.post('/', (req, res) => {
         });
 });
 
+// login
 router.post('/login', (req, res) => {
     // expects {username: 'Samiulhc', password: 'password1234'}
     User.findOne({
@@ -105,6 +68,7 @@ router.post('/login', (req, res) => {
     });
 });
 
+// logout
 router.post('/logout', (req, res) => {
     // Logout for authenticated user
     if (req.session.isAuthenticated) {
@@ -117,46 +81,47 @@ router.post('/logout', (req, res) => {
     }
 });
 
-// router.put('/:id', (req, res) => {
-//   // expects {username: 'Lernantino', email: 'lernantino@gmail.com', password: 'password1234'}
+// update a user based on id
+router.put('/:id', (req, res) => {
+  // expects {username: 'Samiulhc', password: 'password1234'}
 
-//   // pass in req.body instead to only update what's passed through
-//   User.update(req.body, {
-//     individualHooks: true,
-//     where: {
-//       id: req.params.id
-//     }
-//   })
-//     .then(dbUserData => {
-//       if (!dbUserData) {
-//         res.status(404).json({ message: 'No user found with this id' });
-//         return;
-//       }
-//       res.json(dbUserData);
-//     })
-//     .catch(err => {
-//       console.log(err);
-//       res.status(500).json(err);
-//     });
-// });
+  User.update(req.body, {
+    individualHooks: true,
+    where: {
+      id: req.params.id
+    }
+  })
+    .then(userData => {
+      if (!userData) {
+        res.status(404).json({ message: 'No user found with this id' });
+        return;
+      }
+      res.json(userData);
+    })
+    .catch(err => {
+      console.log(err);
+      res.status(500).json(err);
+    });
+});
 
-// router.delete('/:id', (req, res) => {
-//   User.destroy({
-//     where: {
-//       id: req.params.id
-//     }
-//   })
-//     .then(dbUserData => {
-//       if (!dbUserData) {
-//         res.status(404).json({ message: 'No user found with this id' });
-//         return;
-//       }
-//       res.json(dbUserData);
-//     })
-//     .catch(err => {
-//       console.log(err);
-//       res.status(500).json(err);
-//     });
-// });
+// delete user based on id
+router.delete('/:id', (req, res) => {
+  User.destroy({
+    where: {
+      id: req.params.id
+    }
+  })
+    .then(userData => {
+      if (!userData) {
+        res.status(404).json({ message: 'No user found with this id' });
+        return;
+      }
+      res.json(userData);
+    })
+    .catch(err => {
+      console.log(err);
+      res.status(500).json(err);
+    });
+});
 
 module.exports = router;

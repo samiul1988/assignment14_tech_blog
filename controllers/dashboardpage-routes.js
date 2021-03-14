@@ -1,5 +1,8 @@
+// import required modules
 const router = require('express').Router();
 const { Post, User, Comment } = require('../models');
+
+// import auth middleware
 const auth = require('../utils/auth');
 
 // get all posts for dashboard
@@ -41,6 +44,7 @@ router.get('/', auth, (req, res) => {
     });
 });
 
+// get a single post based on post id
 router.get('/edit/:id', auth, (req, res) => {
   Post.findByPk(req.params.id, {
     attributes: [

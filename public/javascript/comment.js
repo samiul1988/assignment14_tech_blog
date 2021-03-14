@@ -5,7 +5,7 @@ const commentFormSubmitHandler = async (e) => {
   const path_segments = window.location.toString().split('/'); 
   const post_id = path_segments[path_segments.length - 1];
 
-  // if there is any comment, then perform post operation
+  // if there is any comment content, then perform post operation
   if (comment_text) {
     const response = await fetch('/api/comments', {
       method: 'POST',

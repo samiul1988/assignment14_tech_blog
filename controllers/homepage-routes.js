@@ -1,14 +1,6 @@
+// import required modules
 const router = require('express').Router();
 const { Post, User, Comment } = require('../models');
-
-// For testing views
-// router.get('/', (req, res) => {
-//     const data = {
-//         post_title: "This is a title",
-//         post_content: "asdasdamsdma asdjasdmawd asijdjawndawd laksdlawd lawdw adwa;daowd aa;kwdkawda asdasdawd awdawdadwad awdawdadwa awdawdad"
-//     };
-//     res.render('homepage', data);
-// });
 
 // Get all posts for homepage
 router.get('/', (req, res) => {
@@ -95,6 +87,7 @@ router.get('/post/:id', (req, res) => {
         });
 });
 
+// login request
 router.get('/login', (req, res) => {
     if (req.session.isAuthenticated) {
         res.redirect('/');
@@ -104,6 +97,7 @@ router.get('/login', (req, res) => {
     res.render('login', {action_label: "Login"});
 });
 
+// signup request
 router.get('/signup', (req, res) => {
     if (req.session.isAuthenticated) {
         res.redirect('/');

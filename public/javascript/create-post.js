@@ -25,9 +25,10 @@ const handleNewPostSubmitBtn = async (e) => {
     }
 }
 
+// Toggles create post""form visibility and button text
 const handleNewPostBtn = () => {
     const btnVal = $("#newPostBtn").val();
-    // Toggle form visibility and button text
+
     if (btnVal === "+ New Post") {
         $("#newPostBtn").prop("value", "Cancel");
         $("#newPostForm")
