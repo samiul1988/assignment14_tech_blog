@@ -1,11 +1,11 @@
-{{> post-card post}}
+{{> post-card data.post}}
 
 {{#if isAuthenticated}}
 {{> comment-form }}
 {{/if}}
 
-{{#if (has_array_elements post.comments)}}
-{{> comments post.comments}}
+{{#if (has_array_elements data.post.comments)}}
+{{> comments data}}
 {{/if}}
 
 {{#if isAuthenticated}}

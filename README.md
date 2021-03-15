@@ -57,10 +57,12 @@ THEN I am automatically signed out of the site
     * Application's folder structure follows MVC paradigm
     * Application was deployed to Heroku
     * For each model, I attempted to create all CRUD apis, some of which return json as response, and some were used in homepage and dashboard page routes to render appropriate views
-    * For session expiry, I considered 30 mins as the set time
+    * If the authenticated user is idle for 10 mins, then he/she is automatically signed out and returned to homepage
+    * I also set the session cookie to be expired in 5 hours
+    * I added features so that if the user is logged in, then he/she can delete his/her own comments from any post 
 
 ### Demo Run
-![Demo Run](./assets/images/Demo_assignment10.gif)
+![Demo Run](./assets/images/assignment14_demo.gif)
 
 ### Link of Deployed Application
-[Heroku App Link](https://drive.google.com/file/d/1IM8kVVlVYrM2cALU0LDn-ewmJCiiwAD9/view)
+[Heroku App Link](https://assignment14-tech-blog.herokuapp.com/)

@@ -8,7 +8,7 @@ const auth = require('../../utils/auth');
 // get all comments
 router.get('/', (req, res) => {
   Comment.findAll()
-    .then(coomentData => res.json(coomentData))
+    .then(commentData => res.json(commentData))
     .catch(err => {
       console.log(err);
       res.status(500).json(err);
@@ -23,7 +23,7 @@ router.post('/', auth, (req, res) => {
     user_id: req.session.user_id,
     post_id: req.body.post_id
   })
-    .then(coomentData => res.json(coomentData))
+    .then(commentData => res.json(commentData))
     .catch(err => {
       console.log(err);
       res.status(400).json(err);
@@ -37,12 +37,12 @@ router.delete('/:id', auth, (req, res) => {
       id: req.params.id
     }
   })
-    .then(coomentData => {
-      if (!coomentData) {
+    .then(commentData => {
+      if (!commentData) {
         res.status(404).json({ message: 'No comment found with this id!' });
         return;
       }
-      res.json(coomentData);
+      res.json(commentData);
     })
     .catch(err => {
       console.log(err);

@@ -1,4 +1,4 @@
-const { format_date, is_array, has_array_elements, toggle_label, toggle_link } = require('../utils/helpers');
+const { format_date, is_array, has_array_elements, toggle_label, toggle_link, is_same } = require('../utils/helpers');
 
 test('format_date() returns a date string', () => {
   const date = new Date('2021-05-25 18:11:10');
@@ -32,4 +32,8 @@ test('toggle_link() returns "/signup" if the input is "Login" and "/login" for o
     expect(toggle_link("Sign up")).toBe("/login");
 });
 
+test('is_same() returns true if inputs are same', () => {
+    expect(is_same("Abc", "Abc")).toBe(true);
+    expect(is_same("Abc", "abc")).toBe(false);
+});
 

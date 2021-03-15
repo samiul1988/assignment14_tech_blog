@@ -1,13 +1,14 @@
 <article class="post_card">
     <div class="post_title_container">
         <div class="post_title">
-            {{!-- {{#if (is_array this)}} --}}
+    
+            {{#if @root.data}}
+            {{post_title}}
+            {{else}}
             <a href="/post/{{id}}">
                 {{post_title}}
             </a>
-            {{!-- {{else}}
-            {{post_title}}
-            {{/if}} --}}
+            {{/if}}
         </div>
         <div class="post_meta_data">
             <span>Posted by {{user.username}} on {{format_date created_at}}</span>

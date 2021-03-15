@@ -161,6 +161,9 @@ main {
     border-style: none solid dashed solid; 
     border-color: var(--color-secondary);
     padding: 15px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
 }
 
 .comment_body:last-child {
@@ -206,6 +209,11 @@ main {
     font-weight: 400;
     background-color: var(--color-tertiary);
     color: white;
+}
+
+.remove_btn {
+    background-color: var(--color-secondary);
+    color: var(--color-primary);
 }
 
 .btn-link {

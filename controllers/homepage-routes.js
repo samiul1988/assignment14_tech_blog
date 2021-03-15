@@ -76,8 +76,10 @@ router.get('/post/:id', (req, res) => {
             const post = singlePostData.get({ plain: true });
 
             res.render('single-post-page', {
-                post,
-                // isAuthenticated: true
+                data: {
+                    post,
+                    current_user: req.session.username
+                },
                 isAuthenticated: req.session.isAuthenticated
             });
         })
@@ -90,7 +92,7 @@ router.get('/post/:id', (req, res) => {
 // login request
 router.get('/login', (req, res) => {
     if (req.session.isAuthenticated) {
-        res.redirect('/');
+        res.redirect('/dashboard/');
         return;
     }
 
@@ -100,7 +102,7 @@ router.get('/login', (req, res) => {
 // signup request
 router.get('/signup', (req, res) => {
     if (req.session.isAuthenticated) {
-        res.redirect('/');
+        res.redirect('/dashboard/');
         return;
     }
 
